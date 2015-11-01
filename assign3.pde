@@ -157,7 +157,7 @@ void draw()
         }
       }
     }
-    if(enemy_x>883)
+    if(enemy_x>882)
     {
       m++;
     }  
