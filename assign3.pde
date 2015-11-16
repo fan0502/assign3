@@ -118,6 +118,8 @@ void draw()
       enemy_y2+=2;
       enemy_x+=1;
     }
+    enemy_y1%=183;
+    enemy_y2%=183;
     if(m%3==1)
     {
       for(int i=1;i<6;i++)
