@@ -98,32 +98,11 @@ void draw()
     }
     image(bg2,bg1_x+640,bg2_y);
     //bakegound
-    /*if(enemy_y1>fighter_y)
-    {
-      enemy_y1-=2;
-      enemy_x+=1;
-    }
-    if(enemy_y1<fighter_y)
-    {
-      enemy_y1+=2;
-      enemy_x+=1;
-    }
-    if(enemy_y2>fighter_y)
-    {
-      enemy_y2-=2;
-      enemy_x+=1;
-    }
-    if(enemy_y2<fighter_y)
-    {
-      enemy_y2+=2;
-      enemy_x+=1;
-    }*/
     if(m%3==1)
     {
       for(int i=1;i<6;i++)
       {
         image(enemy,(enemy_x++)-i*50,enemy_y1);
-        enemy_x%=890;
       }
     }
     if(m%3==2)
@@ -131,7 +110,6 @@ void draw()
       for(int i=1;i<6;i++)
       {
         image(enemy,(enemy_x++)-i*50,enemy_y1+i*50);
-        enemy_x%=890;
       }
     }
     if(m%3==0)
@@ -142,26 +120,29 @@ void draw()
         {
           image(enemy,(enemy_x++)-i*50,enemy_y1-i*50);
           image(enemy,(enemy_x++)-i*50,enemy_y2+i*50);
-          enemy_x%=890;
         }
-        if(i>2&&i<4)
+        if(i==3)
         {
           image(enemy,(enemy_x++)-i*50,enemy_y1+50);
           image(enemy,(enemy_x++)-i*50,enemy_y2-50);
-          enemy_x%=890;
         }
-        if(i>3)
+        if(i==4)
         {
           image(enemy,(enemy_x++)-i*50,enemy_y1);
-          enemy_x%=890;
         }
       }
     }
-    if(enemy_x>882)
+    println(enemy_x);
+    if(enemy_x>890)//882
     {
       m++;
       enemy_y1=random(120,197);
       enemy_y2=enemy_y1;
+      if(m>3)
+      {
+        m=1;
+      }
+      enemy_x%=890;
     }  
     //enemy
     if(fUp)
@@ -180,21 +161,21 @@ void draw()
     {
       fighter_x+=10;
     }
-    if(fighter_x>640)
+    if(fighter_x>580)
     {
-      fighter_x=0; 
+      fighter_x=580; 
     }
     if(fighter_x<0)
     {
-      fighter_x=640; 
+      fighter_x=0; 
     }
-    if(fighter_y>480)
+    if(fighter_y>420)
     {
-      fighter_y=0; 
+      fighter_y=420; 
     }
      if(fighter_y<0)
      {
-      fighter_y=480; 
+      fighter_y=0; 
     }
     image(fighter,fighter_x,fighter_y);
     //player
